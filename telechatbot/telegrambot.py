@@ -62,7 +62,7 @@ I hpoe this help :)
 
 @dp.message()
 async def chatgpt(message: types.Message):
-    #print(f">>> USER: \n\t{message.text}")
+    # print(f">>> USER: \n\t{message.text}")
     try:
         response = openai.chat.completions.create(
             model=MODEL_NAME,
@@ -72,7 +72,7 @@ async def chatgpt(message: types.Message):
             ]
         )
         reference.response = response.choices[0].message.content
-        #print(f">>> chatpromax: \n\t{reference.response}")
+        # print(f">>> chatpromax: \n\t{reference.response}")
         await bot.send_message(chat_id=message.chat.id, text=reference.response)
 
     except RateLimitError:
